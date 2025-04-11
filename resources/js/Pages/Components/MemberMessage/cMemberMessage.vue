@@ -7,8 +7,15 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-9 col-md-10">
                             <div class="d-flex flex-column justify-content-between py-4 px-3 border border-secondary rounded w-auto" style="height: 500px; max-height: 100%;">
-                                <div class="d-flex gap-2">
-
+                                <div class="w-auto" style="width: 100%; height: 70%; overflow: auto; ">
+                                    <div v-for="(getmessage, index) in messageConvos" :key="index" class="">
+                                        <div v-if="getmessage.sender_id == userIds" class="d-flex justify-content-end mt-2" >
+                                            <p class="fw-semibold text-white rounded-4 bg-dark py-2 px-4 d-inline-block" style="max-width: 50%;">{{ getmessage.message }}</p>
+                                        </div>
+                                        <div v-else class="text-start mt-2">
+                                            <p class="fw-semibold text-white rounded-5 bg-secondary py-2 px-4 d-inline-block" style="max-width: 50%;">{{ getmessage.message }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="d-flex gap-2">
                                     <textarea v-model="rmessage" class="form-control shadow-none rounded-5" placeholder="Leave a message here" style="max-height: 40px;"></textarea>
@@ -31,7 +38,7 @@ import { router } from '@inertiajs/vue3'
 export default {
     name: 'cMemberMessage',
     components: { Navbar, inertiaLink },
-    props: { userIds: Number, userInfos: Object, userCarts:Object },
+    props: { userIds: Number, userInfos: Object, userCarts:Object, messageConvos:Array},
     data(){
         return{
             rmessage: ''
@@ -43,6 +50,8 @@ export default {
                 memberMessage: this.rmessage
             }
             router.post('/sendmessage', data);
+
+            this.rmessage = ''
         }
     }
 }

@@ -10,6 +10,8 @@ use App\Models\transaction;
 use Illuminate\Http\Request;
 use App\Models\Premade_Items;
 use App\Models\PremadeComment;
+use App\Models\conversation_table;
+use App\Models\message_table;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -175,10 +177,18 @@ class FrontEndController extends Controller
         $get_authid = Auth::id();
         $get_userInfo = User::select('email', 'fullname', 'username', 'file_profile')->where('id', $get_authid)->first();
         $getcart = session('premadeItem', []);
+
+        $get_conversationId = conversation_table::where('member_id', $get_authid)
+                            ->first();
+        $get_convomessage = message_table::where('conversation_id', $get_conversationId->id)
+                            ->orderBy('created_at', 'desc')
+                            ->get();
+       // dd($get_convomessage);
         return Inertia::render('Index/MemberMessage', [
            "userId" => $get_authid,
            "userInfo" =>  $get_userInfo,
-           "userCart" => $getcart
+           "userCart" => $getcart,
+           "messageConvo" => $get_convomessage
         ]);
     }
 
