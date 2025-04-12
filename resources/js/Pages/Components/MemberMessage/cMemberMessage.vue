@@ -7,13 +7,16 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-9 col-md-10">
                             <div class="d-flex flex-column justify-content-between py-4 px-3 border border-secondary rounded w-auto" style="height: 500px; max-height: 100%;">
-                                <div class="w-auto" style="width: 100%; height: 70%; overflow: auto; ">
+                                <div class="text-start">
+                                    <img src="./assets/logo.png" alt="" width="150">
+                                </div>
+                                <div class="w-auto" style="width: 100%; height: 75%; overflow: auto; scrollbar-width: none;">
                                     <div v-for="(getmessage, index) in messageConvos" :key="index" class="">
-                                        <div v-if="getmessage.sender_id == userIds" class="d-flex justify-content-end mt-2" >
-                                            <p class="fw-semibold text-white rounded-4 bg-dark py-2 px-4 d-inline-block" style="max-width: 50%;">{{ getmessage.message }}</p>
+                                        <div v-if="getmessage.sender_id == userIds" class="d-flex justify-content-end mt-2 " >
+                                            <p class="fw-semibold text-white rounded-4 bg-dark py-2 px-4 me-4 d-inline-block" style="max-width: 50%; font-size: 12px;">{{ getmessage.message }}</p>
                                         </div>
                                         <div v-else class="text-start mt-2">
-                                            <p class="fw-semibold text-white rounded-5 bg-secondary py-2 px-4 d-inline-block" style="max-width: 50%;">{{ getmessage.message }}</p>
+                                            <p class="fw-semibold text-white rounded-5 bg-secondary py-2 px-4 d-inline-block" style="max-width: 50%; font-size: 12px;">{{ getmessage.message }}</p>
                                         </div>
                                     </div>
                                 </div>

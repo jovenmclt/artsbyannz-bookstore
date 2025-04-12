@@ -181,7 +181,7 @@ class FrontEndController extends Controller
         $get_conversationId = conversation_table::where('member_id', $get_authid)
                             ->first();
         $get_convomessage = message_table::where('conversation_id', $get_conversationId->id)
-                            ->orderBy('created_at', 'desc')
+                            ->orderBy('created_at', 'asc')
                             ->get();
        // dd($get_convomessage);
         return Inertia::render('Index/MemberMessage', [
