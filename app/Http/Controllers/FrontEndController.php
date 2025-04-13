@@ -176,17 +176,23 @@ class FrontEndController extends Controller
     public function MemberMessage(){
         $get_authid = Auth::id();
         $get_userInfo = User::select('email', 'fullname', 'username', 'file_profile')->where('id', $get_authid)->first();
+        $get_adminProfile = User::select('file_profile')->where('is_admin', '1')->first();
         $getcart = session('premadeItem', []);
 
         $get_conversationId = conversation_table::where('member_id', $get_authid)
                             ->first();
-        $get_convomessage = message_table::where('conversation_id', $get_conversationId->id)
-                            ->orderBy('created_at', 'asc')
-                            ->get();
-       // dd($get_convomessage);
+
+        $get_convomessage = [];
+
+        if ($get_conversationId) {
+            $get_convomessage = message_table::where('conversation_id', $get_conversationId->id)
+                                ->orderBy('created_at', 'asc')
+                                ->get();
+        }
         return Inertia::render('Index/MemberMessage', [
            "userId" => $get_authid,
            "userInfo" =>  $get_userInfo,
+           "adminProfile" => $get_adminProfile,
            "userCart" => $getcart,
            "messageConvo" => $get_convomessage
         ]);

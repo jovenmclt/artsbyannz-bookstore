@@ -12,11 +12,20 @@
                                 </div>
                                 <div class="w-auto" style="width: 100%; height: 75%; overflow: auto; scrollbar-width: none;">
                                     <div v-for="(getmessage, index) in messageConvos" :key="index" class="">
-                                        <div v-if="getmessage.sender_id == userIds" class="d-flex justify-content-end mt-2 " >
-                                            <p class="fw-semibold text-white rounded-4 bg-dark py-2 px-4 me-4 d-inline-block" style="max-width: 50%; font-size: 12px;">{{ getmessage.message }}</p>
+                                        <div v-if="getmessage.sender_id == userIds" class=" mt-2 " >
+                                            <div class="d-flex justify-content-end">
+                                                <p class="fw-semibold text-white rounded-3 bg-dark py-2 px-3 me-2 mb-2 d-inline-block lh-lg" style="max-width: 50%; font-size: 12px;">{{ getmessage.message }}</p>
+                                            </div>
+                                            <p class="fw-light text-end text-secondary me-4" style="font-size: 12px;">{{ new Date(getmessage.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }}</p>
                                         </div>
-                                        <div v-else class="text-start mt-2">
-                                            <p class="fw-semibold text-white rounded-5 bg-secondary py-2 px-4 d-inline-block" style="max-width: 50%; font-size: 12px;">{{ getmessage.message }}</p>
+                                        <div v-else>
+                                            <div class="d-flex justify-content-start">
+                                                <img :src="`/storage/${adminProfile.file_profile}`" class="rounded-5 mt-2" alt="" width="35" height="35">
+                                                <p class="fw-semibold text-white rounded-3 bg-secondary ms-2 py-2 px-3 mb-2 d-inline-block lh-lg" style="max-width: 50%; font-size: 12px;">{{ getmessage.message }}</p>
+                                            </div>
+                                            <p class="fw-light text-secondary ms-5" style="font-size: 12px;">{{ new Date(getmessage.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }}
+                                            </p>
+
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +50,7 @@ import { router } from '@inertiajs/vue3'
 export default {
     name: 'cMemberMessage',
     components: { Navbar, inertiaLink },
-    props: { userIds: Number, userInfos: Object, userCarts:Object, messageConvos:Array},
+    props: { userIds: Number, userInfos: Object, userCarts:Object, messageConvos:Array, adminProfile:Object},
     data(){
         return{
             rmessage: ''
@@ -65,6 +74,7 @@ export default {
 
 section {
     font-family: "Poppins", serif;
-    padding-top: calc(60px + 1rem) ;
+    padding-top: calc(60px + 1rem);
+    overflow-wrap: break-word;
 }
 </style>
