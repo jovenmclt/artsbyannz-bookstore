@@ -83,7 +83,7 @@ Route::group(['middleware' => ['auth', AdminMiddleware::class]], function(){
     Route::get('/admin/orders', [adminFrontendController::class, 'orderManagement'])->name('orderManagement');
     Route::get('/admin/donation', [adminFrontendController::class, 'admindonation'])->name('admindonation');
     Route::get('/customerdetails/{customerId}', [adminFrontendController::class, 'customerDetail'])->name('customerDetail');
-
+    Route::get('/admin/chatbox', [adminFrontendController::class, 'chatbox'])->name('chatbox');
     //premade post
     Route::get('/admin/membership/newpost', [adminFrontendController::class, 'membershipNewpost'])->name('membershipNewpost');
     Route::get('/admin/membership/allpost', [adminFrontendController::class, 'viewAllpost'])->name('viewAllpost');

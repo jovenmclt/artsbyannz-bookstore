@@ -13,6 +13,8 @@ use App\Models\Premade_Items;
 use App\Models\PremadeComment;
 use Illuminate\Support\Facades\Auth;
 use App\Models\donation_table;
+use App\Models\conversation_table;
+use App\Models\message_table;
 
 class adminFrontendController extends Controller
 {
@@ -42,6 +44,23 @@ class adminFrontendController extends Controller
         return Inertia::render('Index/AdminBookshop', [
             "premade_items" => $getpremade_items,
             "getAdminImage" => $getAdmin_images
+        ]);
+    }
+
+    public function chatbox(){
+        $getAdmin_images = User::select('file_logo', 'file_profile', 'username', 'email')->where('is_admin', '1')->first();
+
+        $get_userConversationID = conversation_table::select('member_id')->get();
+        $memberIDs = $get_userConversationID->pluck('member_id');
+
+        $get_usersConvoInfo = User::whereIn('id', $memberIDs)->get();
+
+        $get_readmessage = message_table::whereIn('sender_id', $memberIDs)->get();
+        //dd($get_readmessage);
+        return Inertia::render('Index/AdminChatbox', [
+            "getAdminImage" => $getAdmin_images,
+            "get_usersConvoInfo" => $get_usersConvoInfo,
+            "get_readmessage" => $get_readmessage
         ]);
     }
 

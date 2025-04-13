@@ -168,7 +168,7 @@
         <ul class="navbar-nav flex-column mt-4">
             <li class="nav-item border-top">
                 <div class="text-start nav-hover px-2 mt-2">
-                    <inertiaLink href="/admin/dashboard" class="nav-link bg-transparent text-white">
+                    <inertiaLink href="/admin/chatbox" class="nav-link bg-transparent text-white">
                         <i class="bi bi-chat-dots bg-transparent me-2"></i>
                         <span class="bg-transparent">Messsage <sup class="bg-transparent">10</sup></span>
                     </inertiaLink>

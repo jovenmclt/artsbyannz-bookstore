@@ -30,7 +30,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex gap-2">
-                                    <textarea v-model="rmessage" class="form-control shadow-none rounded-5" placeholder="Leave a message here" style="max-height: 40px;"></textarea>
+                                    <textarea id="message" v-model="rmessage" class="form-control shadow-none rounded-5" placeholder="Leave a message here" style="max-height: 40px;"></textarea>
                                     <button @click="sendMessage" class="btn btn-secondary rounded-5">Send</button>
                                 </div>
                             </div>
@@ -61,8 +61,11 @@ export default {
             const data = {
                 memberMessage: this.rmessage
             }
-            router.post('/sendmessage', data);
-
+            if(this.rmessage != ''){
+                router.post('/sendmessage', data);
+            }else{
+                document.getElementById('message').focus();
+            }
             this.rmessage = ''
         }
     }
