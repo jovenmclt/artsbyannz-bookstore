@@ -14,8 +14,8 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div v-for="(getuser, index) in get_usersConvoInfo" :key="index" style="max-height: 900px; overflow: auto; scrollbar-width:inherit;">
-                                <inertiaLink href="#" class="text-decoration-none d-flex flex-wrap justify-content-between border rounded-2 mt-3 py-2 px-3">
+                            <div v-for="(getuser, index) in get_usersinfo" :key="index" style="max-height: 900px; overflow: auto; scrollbar-width:inherit;">
+                                <inertiaLink :href="`/admin/usermessage/${getuser.id}`" class="text-decoration-none d-flex flex-wrap justify-content-between border rounded-2 mt-3 py-2 px-3">
                                     <div class="d-flex gap-2">
                                         <div v-if="getuser.file_profile" class="text-start">
                                             <img :src="`/storage/${getuser.file_profile}`" alt="" width="60" height="60" class="rounded-5">
@@ -32,13 +32,12 @@
                                         <p class="fw-light text-white mt-3 mb-0" style="font-size: 12px;">Account created</p>
                                         <p class="fw-light text-white" style="font-size: 12px;"> {{ new Date(getuser.created_at).toISOString().slice(0, 10) }}  </p>
                                     </div>
-                                    <div v-if="isSender(getuser.id)" class="text-start">
-                                        <p class="fw-semibold text-white mt-3" style="font-size: 12px;">Unread message<span class="text-danger">*</span></p>
+                                    <div v-if="getuser.is_active == '1'" class="">
+                                        <p class="text-white border border-success px-2 py-1 mb-0 mt-3 rounded-5 " style="background-color: rgba(134, 242, 114, 0.2); font-size: 12px;">Active</p>
                                     </div>
                                     <div v-else>
-                                        <p class="fw-light text-white mt-3" style="font-size: 12px;">read message</p>
+                                        <p class="text-white border border-danger px-2 py-1  mb-0 mt-3 rounded-5" style="background-color: rgba(242, 123, 114, 0.3); font-size: 12px;">Offline</p>
                                     </div>
-
                                 </inertiaLink>
                             </div>
                         </div>
@@ -55,12 +54,7 @@ import { Link as inertiaLink } from '@inertiajs/vue3'
 export default {
     name: 'cAdminChatbox',
     components: { AdminNavigationVue, inertiaLink },
-    props: {getcAdmin_images:Object, get_usersConvoInfo:Array, get_readmessage:Array},
-    methods:{
-        isSender(userId){
-            return this.get_readmessage.some(msg => msg.sender_id == userId);
-        }
-    }
+    props: {getcAdmin_images:Object, get_usersinfo:Array},
 }
 </script>
 

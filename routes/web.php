@@ -84,6 +84,11 @@ Route::group(['middleware' => ['auth', AdminMiddleware::class]], function(){
     Route::get('/admin/donation', [adminFrontendController::class, 'admindonation'])->name('admindonation');
     Route::get('/customerdetails/{customerId}', [adminFrontendController::class, 'customerDetail'])->name('customerDetail');
     Route::get('/admin/chatbox', [adminFrontendController::class, 'chatbox'])->name('chatbox');
+
+    //chat message
+    Route::get('/admin/usermessage/{userId}', [MessageController::class, 'admin_getmessage'])->name('admin_getmessage');
+    Route::post('/adminsendmessage', [MessageController::class, 'sendmessage_admin'])->name('sendmessage_admin');
+
     //premade post
     Route::get('/admin/membership/newpost', [adminFrontendController::class, 'membershipNewpost'])->name('membershipNewpost');
     Route::get('/admin/membership/allpost', [adminFrontendController::class, 'viewAllpost'])->name('viewAllpost');

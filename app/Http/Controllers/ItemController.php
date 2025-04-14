@@ -49,7 +49,7 @@ class ItemController extends Controller
 
     public function ViewItem(Premade_Items $viewItemId){
         //dd($viewItem);
-        $getAdmin_images = User::select('file_logo', 'file_profile', 'username', 'email')->first();
+        $getAdmin_images = User::select('file_logo', 'file_profile', 'username', 'email')->where('is_admin','1')->first();
         return Inertia::render('Index/AdminViewItem', [
             "premadeItems" => $viewItemId,
             "getAdminImage" => $getAdmin_images
@@ -59,7 +59,7 @@ class ItemController extends Controller
     public function editItem(Premade_Items $EditItemId){
         //
         //dd($EditItemId);
-        $getAdmin_images = User::select('file_logo', 'file_profile', 'username', 'email')->first();
+        $getAdmin_images = User::select('file_logo', 'file_profile', 'username', 'email')->where('is_admin','1')->first();
         return Inertia::render('Index/AdminEdit', [
             "premadeItems" => $EditItemId,
             "getAdminImage" => $getAdmin_images
