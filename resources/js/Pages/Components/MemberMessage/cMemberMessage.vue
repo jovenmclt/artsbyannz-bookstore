@@ -10,7 +10,7 @@
                                 <div class="text-start">
                                     <img src="./assets/logo.png" alt="" width="150">
                                 </div>
-                                <div class="w-auto" style="width: 100%; height: 75%; overflow: auto; scrollbar-width: none;">
+                                <div style="width: 100%; max-height: 75%; overflow: auto; scrollbar-width: none;">
                                     <div v-for="(getmessage, index) in messageConvos" :key="index" >
                                         <div v-if="getmessage.sender_id == userIds" class=" mt-2 " >
                                             <div class="d-flex justify-content-end">

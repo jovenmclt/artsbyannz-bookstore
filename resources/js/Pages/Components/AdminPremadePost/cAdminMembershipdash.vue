@@ -86,7 +86,8 @@
                                         <tr v-for="(userInfo, index) in m_sortItem" :key="index">
                                             <td class="fw-light" style="font-size: 13px;">{{ userInfo.id }}</td>
                                             <td class="fw-light" style="font-size: 13px;">
-                                                <img :src="`/storage/${userInfo.file_profile}`" alt="" width="30" height="30" class="rounded-5 p-0">
+                                                <img v-if="userInfo.file_profile" :src="`/storage/${userInfo.file_profile}`" alt="" width="30" height="30" class="rounded-5 p-0">
+                                                <img v-else class="bg-transparent" width="30" height="30" src="https://img.icons8.com/color/100/user-male-circle--v1.png" alt="user-male-circle--v1"/>
                                             </td>
                                             <td class="fw-light" style="font-size: 13px;">{{ userInfo.fullname }}</td>
                                             <td class="fw-light" style="font-size: 13px;">{{ userInfo.email }}</td>

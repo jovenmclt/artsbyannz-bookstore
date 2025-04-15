@@ -5,12 +5,12 @@
             <main class="col-xl-10 col-md-9 ms-auto justify-content-center px-3 ">
                 <section class="" id="sec1">
                     <div class="row justify-content-start">
-                        <div class="text-start py-4">
+                        <div class="text-start pt-4">
                             <a href="#" class="text-decoration-none text-secondary hover:text-white">
                                 <span class="fw-light">message > inbox</span>
                             </a>
                             <div class="d-flex justify-content-between py-3">
-                                <h4 class="fw-semibold text-white "> Message Inbox</h4>
+                                <h4 class="fw-semibold text-white "><img width="40" height="40" src="https://img.icons8.com/external-kosonicon-flat-kosonicon/64/external-message-chat-messages-kosonicon-flat-kosonicon-19.png" alt="external-message-chat-messages-kosonicon-flat-kosonicon-19"/> Message Inbox</h4>
                             </div>
                         </div>
                         <div class="col-md-12">

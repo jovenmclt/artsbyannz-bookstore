@@ -10,8 +10,9 @@
                             <div class="d-flex flex-column justify-content-between py-4 px-3 border border-secondary rounded w-auto" style="height: 500px; max-height: 100%;">
                                 <div class="d-flex justify-content-between">
                                     <div class="text-start">
-                                        <img :src="`/storage/${memberInfo.file_profile}`" alt="" width="30" height="30" class="rounded-5 me-2">
-                                        <span class="fw-semibold text-white">{{ memberInfo.fullname }}</span>
+                                        <img v-if="memberInfo.file_profile" :src="`/storage/${memberInfo.file_profile}`" alt="" width="30" height="30" class="rounded-5 me-2">
+                                        <img v-else width="30" height="30" src="https://img.icons8.com/color/100/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+                                        <span class="fw-semibold text-white"> {{ memberInfo.fullname }}</span>
                                     </div>
                                     <div v-if="memberInfo.is_active" class="text-start">
                                         <span class="text-white border border-success px-2 py-1 rounded-5" style="background-color: rgba(134, 242, 114, 0.2); font-size: 12px;">Active</span>
@@ -20,8 +21,8 @@
                                         <span class="text-white border border-danger px-2 py-1 rounded-5" style="background-color: rgba(242, 123, 114, 0.3); font-size: 12px;">Offline</span>
                                     </div>
                                 </div>
-                                <div class="w-auto" style="width: 100%; height: 75%; overflow: auto; scrollbar-width: none;">
-                                    <div v-for="(getmessage, index) in get_membermessage" :key="index" class="">
+                                <div style="width: 100%; max-height: 75%; overflow: auto; scrollbar-width: none;">
+                                    <div v-for="(getmessage, index) in get_membermessage" :key="index">
                                         <div v-if="getmessage.sender_id == get_authId" class=" mt-2 " >
                                             <div class="d-flex justify-content-end">
                                                 <p class="fw-semibold text-white rounded-3 bg-dark py-2 px-3 me-2 mb-2 d-inline-block lh-lg" style="max-width: 50%; font-size: 12px;">{{ getmessage.message }}</p>
@@ -30,7 +31,8 @@
                                         </div>
                                         <div v-else>
                                             <div class="d-flex justify-content-start">
-                                                <img :src="`/storage/${memberInfo.file_profile}`" class="rounded-5 mt-2" alt="" width="35" height="35">
+                                                <img v-if="memberInfo.file_profile" :src="`/storage/${memberInfo.file_profile}`" class="rounded-5 mt-2" alt="" width="35" height="35">
+                                                <img v-else width="35" height="35" src="https://img.icons8.com/color/100/user-male-circle--v1.png" alt="user-male-circle--v1"/>
                                                 <p class="fw-semibold text-white rounded-3 bg-secondary ms-2 py-2 px-3 mb-2 d-inline-block lh-lg" style="max-width: 50%; font-size: 12px;">{{ getmessage.message }}</p>
                                             </div>
                                             <p class="fw-light text-secondary ms-5" style="font-size: 12px;">{{ new Date(getmessage.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }}

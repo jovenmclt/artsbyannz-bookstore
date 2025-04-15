@@ -159,7 +159,7 @@
                                 <div class="d-flex justify-content-between bg-transparent pb-3">
                                     <div class="text-start bg-transparent">
                                         <h6 class="fw-semibold text-white bg-transparent pe-2">List of members</h6>
-                                        <span class="fw-light text-secondary bg-transparent">Member status & info</span>
+                                        <span class="fw-light text-secondary bg-transparent">Member status & information</span>
                                     </div>
                                     <button @click="$inertia.visit(`/admin/membership`)" class="btn btn-outline-secondary h-25 px-2" >
                                         <span class="fw-light bg-transparent" style="font-size: 14px;">Membership</span>
@@ -190,7 +190,8 @@
                                             <tr v-for="(userInfo, index) in allUsers" :key="index">
                                                 <td class="fw-light " style="font-size: 13px;">{{ userInfo.id }}</td>
                                                 <td class="fw-light" style="font-size: 13px;">
-                                                    <img :src="`/storage/${userInfo.file_profile}`" alt="" width="30" height="30" class="rounded-5 p-0">
+                                                    <img v-if="userInfo.file_profile" :src="`/storage/${userInfo.file_profile}`" alt="" width="30" height="30" class="rounded-5 p-0">
+                                                    <img v-else class="bg-transparent" width="30" height="30" src="https://img.icons8.com/color/100/user-male-circle--v1.png" alt="user-male-circle--v1"/>
                                                 </td>
                                                 <td class="fw-light" style="font-size: 13px;">{{ userInfo.fullname }}</td>
                                                 <td class="fw-light" style="font-size: 13px;">{{ userInfo.email }}</td>

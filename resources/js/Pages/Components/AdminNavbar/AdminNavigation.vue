@@ -31,69 +31,86 @@
             </div>
         </div>
         <div class="collapse navbar-collapse justify-content-start align-items-center" id="nav1">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav flex-column pt-3">
                 <li class="nav-item">
-                    <div class="text-center nav-hover">
+                    <div class="text-start nav-hover px-2">
                         <inertiaLink href="/admin/dashboard" class="nav-link bg-transparent text-white">
-                            <i class="bi bi-house bg-transparent me-2">
-                                <span class="bg-transparent"> Dashboard</span>
-                            </i>
+                            <i class="bi bi-house bg-transparent me-2"></i>
+                            <span class="bg-transparent">Dashboard</span>
                         </inertiaLink>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <div class="text-center nav-hover ">
-                        <inertiaLink href="/admin/bookshop" class="nav-link bg-transparent text-white">
-                            <i class="bi bi-clipboard-minus me-2 bg-transparent">
-                                <span class="bg-transparent"> Book Shop</span>
-                            </i>
-                        </inertiaLink>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="text-center nav-hover px-2">
+                    <div class="text-start nav-hover px-2">
                         <inertiaLink href="/admin/membership" class="nav-link bg-transparent text-white">
-                            <i class="bi bi-star-half me-2 bg-transparent">
-                                <span class="bg-transparent"> Membership</span>
-                            </i>
+                            <i class="bi bi-star me-2 bg-transparent"></i>
+                            <span class="bg-transparent">Membership</span>
                         </inertiaLink>
                     </div>
                 </li>
-                <li class="nav-item mt-3 ">
-                    <a class="text-decoration-none text-white d-flex gap-5 justify-content-center"
-                        data-bs-toggle="collapse" href="#collapseNav" aria-expanded="false"
-                        aria-controls="collapseExample">
-                        <span>Store</span>
+                <li class="nav-item">
+                    <div class="text-start nav-hover px-2">
+                        <inertiaLink href="/admin/donation" class="nav-link bg-transparent text-white">
+                            <i class="bi bi-currency-dollar me-2 bg-transparent"></i>
+                            <span class="bg-transparent">Donation</span>
+                        </inertiaLink>
+                    </div>
+                </li>
+                <li class="nav-item mt-4">
+                    <a class="text-decoration-none px-2 text-white d-flex justify-content-between" data-bs-toggle="collapse"
+                        href="#collapseNav" aria-expanded="true" aria-controls="collapseExample">
+                        <span style="font-size: 14px;">Store Management</span>
                         <i class="bi bi-caret-down text-white"></i>
                     </a>
-                    <div class="collapse " id="collapseNav">
-                        <ul class="navbar-nav pt-4">
+                    <div class="collapse show" id="collapseNav">
+                        <ul class="navbar-nav pt-2">
                             <li class="nav-item">
-                                <div class="text-center nav-hover">
-                                    <a href="#" class="nav-link text-white bg-transparent"><i
-                                            class="bi bi-cart bg-transparent me-2">
-                                            <span class="bg-transparent"> Orders</span></i></a>
+                                <div class="text-start nav-hover px-2">
+                                    <inertiaLink href="/admin/bookshop" class="nav-link bg-transparent text-white">
+                                        <i class="bi bi-clipboard-minus me-2 bg-transparent"></i>
+                                        <span class="bg-transparent">Book Shop</span>
+                                    </inertiaLink>
                                 </div>
                             </li>
                         </ul>
-                        <ul class="navbar-nav pt-3">
+                        <ul class="navbar-nav pt-2">
                             <li class="nav-item">
-                                <div class="text-center nav-hover">
-                                    <a href="#" class="nav-link text-white"><i
-                                            class="bi bi-dropbox me-2 bg-transparent"> <span class="bg-transparent">
-                                                Process</span></i></a>
+                                <div class="text-start nav-hover px-2">
+                                    <inertiaLink href="/admin/orders" class="nav-link text-white bg-transparent">
+                                        <i class="bi bi-cart bg-transparent me-2"></i>
+                                        <span class="bg-transparent">Orders</span>
+                                    </inertiaLink>
                                 </div>
                             </li>
                         </ul>
-                        <ul class="navbar-nav pt-3">
+                        <ul class="navbar-nav pt-2">
                             <li class="nav-item">
-                                <div class="text-center nav-hover">
-                                    <a href="#" class="nav-link text-white"><i
-                                            class="bi bi-check-lg me-2 bg-transparent">
-                                            <span class="bg-transparent"> Completed</span></i></a>
+                                <div class="text-start nav-hover px-2">
+                                    <inertiaLink href="/admin/customers" class="nav-link text-white">
+                                        <i class="bi bi-people bg-transparent me-2"></i>
+                                        <span class="bg-transparent">Customers</span>
+                                    </inertiaLink>
                                 </div>
                             </li>
                         </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav flex-column mt-4">
+                <li class="nav-item border-top">
+                    <div class="text-start nav-hover px-2 mt-2">
+                        <inertiaLink href="/admin/chatbox" class="nav-link bg-transparent text-white">
+                            <i class="bi bi-chat-dots bg-transparent me-2"></i>
+                            <span class="bg-transparent">Messsage</span>
+                        </inertiaLink>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="text-start nav-hover px-2 mt-1">
+                        <inertiaLink href="/admin/privacySettings" class="nav-link bg-transparent text-white">
+                            <i class="bi bi-gear bg-transparent me-2"></i>
+                            <span class="bg-transparent">Settings</span>
+                        </inertiaLink>
                     </div>
                 </li>
             </ul>
@@ -170,7 +187,7 @@
                 <div class="text-start nav-hover px-2 mt-2">
                     <inertiaLink href="/admin/chatbox" class="nav-link bg-transparent text-white">
                         <i class="bi bi-chat-dots bg-transparent me-2"></i>
-                        <span class="bg-transparent">Messsage <sup class="bg-transparent">10</sup></span>
+                        <span class="bg-transparent">Messsage</span>
                     </inertiaLink>
                 </div>
             </li>

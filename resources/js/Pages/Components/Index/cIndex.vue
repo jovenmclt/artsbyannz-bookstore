@@ -4,22 +4,6 @@
             <Navigation :userCarts="userCarts"/>
             <main class="col-12 justify-content-center align-items-center">
                 <section id="sec1">
-                    <div class="row justify-content-center mx-auto">
-                        <div class="col-md-11 bg-dark rounded">
-                            <div class="d-md-flex justify-content-between gap-2  py-5 px-5 bg-transparent">
-                                <div class="text-md-start text-center bg-transparent">
-                                    <h2 class="fw-semibold text-white bg-transparent">Premade Book Covers</h2>
-                                    <p class="fw-light text-secondary bg-transparent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sint accusantium tempore aspernatur nobis est minus at autem omnis ducimus.</p>
-                                    <button class="btn shadow-none rounded-3 text-white" style="background-color: #B38ED1;">Browse premade book covers</button>
-                                </div>
-                                <div class="text-center bg-transparent w-100">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="sec2">
                     <div class="row justify-content-center">
                         <div class="text-center">
                             <h1 class="fw-light text-white">PREMADE BOOK COVERS</h1>
@@ -419,4 +403,5 @@ img:hover {
     opacity: 50%;
     transition: 0.5s;
 }
+
 </style>
