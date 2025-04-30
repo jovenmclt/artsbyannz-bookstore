@@ -47,7 +47,7 @@
                         <div class="col-md-4 mt-md-0 mt-3">
                             <div class="text-start rounded-4 pt-3" style="background-color: #2A3335;">
                                 <span class="fw-semibold px-3 text-secondary bg-transparent">Donations</span>
-                                <h1 class="fw-bold text-white px-3 bg-transparent">{{ allUsers.length }}</h1>
+                                <h1 class="fw-bold text-white px-3 bg-transparent">${{ rtotalDonation }}</h1>
                                 <div class="bg-transparent">
                                     <canvas id="donationschart" class="bg-transparent" style="width: 100%; height: 40px; "></canvas>
                                 </div>
@@ -240,7 +240,7 @@ import Chart from 'chart.js/auto'
 export default {
     name: 'cAdminDashboard',
     components: { AdminNavigation, inertiaLink },
-    props: { getcAdmin_images: Object , allUsers:Array, get_sales:Array, get_incomes:Array, get_recentPurchase:Array, get_itemTypes:Array},
+    props: { getcAdmin_images: Object , allUsers:Array, get_sales:Array, get_incomes:Array, get_recentPurchase:Array, get_itemTypes:Array, get_allDonation:Array},
     data() {
         return {
             adminImage: this.getcAdmin_images ? this.getcAdmin_images.file_profile : '',
@@ -253,7 +253,9 @@ export default {
             mmbr_sortstatus: false,
 
             bookCover_container: [],
-            wallPaper_container: []
+            wallPaper_container: [],
+
+            rtotalDonation: '',
         }
     },
     methods: {
@@ -308,10 +310,28 @@ export default {
         },
         donationChart(){
             const ctx = document.getElementById('donationschart');
+
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonth = now.getMonth();
+
+            const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'];
+
+            const labels = months.slice(currentMonth).concat(months.slice(0, currentMonth));
+
+            let donationCount = new Array(12).fill(0);
+
+            this.get_allDonation.filter(getDonation => new Date(getDonation.created_at).getFullYear() === currentYear).forEach(getDonation => {
+                let monthIndex = new Date(getDonation.created_at).getMonth();
+                donationCount[monthIndex]++;
+            });
+
+            donationCount = donationCount.slice(currentMonth).concat(donationCount.slice(0, currentMonth));
             const data = {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                labels: labels,
                 datasets: [{
-                    data: [6, 2, 50, 10, 40],
+                    data: donationCount,
                     borderColor: 'rgba(206, 233, 32, 0.8)',
                     fill: true,
                     backgroundColor: 'rgba(206, 233, 32, 0.3)',
@@ -330,6 +350,7 @@ export default {
                     }
                 }
             };
+
 
             new Chart (ctx,config);
         },
@@ -541,6 +562,13 @@ export default {
                     }
                 })
         },
+        getTotalDonation(){
+            let sum = 0
+            for(let i = 0; i < this.get_allDonation.length; i++){
+                sum += Number(this.get_allDonation[i].amount);
+            }
+            this.rtotalDonation = sum.toFixed(2);
+        },
 
     },
     mounted(){
@@ -549,6 +577,7 @@ export default {
         this.salesChart();
         this.incomeChart();
         this.donationChartDoughnut();
+        this.getTotalDonation();
     }
 }
 </script>

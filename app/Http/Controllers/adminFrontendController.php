@@ -26,6 +26,7 @@ class adminFrontendController extends Controller
         $get_income = transaction::select('amount', 'completedDate')->whereYear('completedDate', date('Y'))->get();
         $get_type = transaction::select('item_type')->whereYear('completedDate', date('Y'))->get();
         $get_recentPurchase = transaction::orderBy('created_at', 'desc')->take(12)->get();
+        $get_allDonation = donation_table::all();
        // dd($get_recentPurchase);
         return Inertia::render('Index/AdminDashboard', [
             "getAdminImage" => $getAdmin_images,
@@ -33,7 +34,8 @@ class adminFrontendController extends Controller
             "get_sale" => $get_sales,
             "get_income" => $get_income,
             "get_recentPurchase" => $get_recentPurchase,
-            "get_itemType" => $get_type
+            "get_itemType" => $get_type,
+            "get_allDonation" => $get_allDonation
         ]);
     }
 
