@@ -26,6 +26,9 @@
                                         <div class="text-start">
                                             <h5 class="fw-normal text-white mt-2" style="font-size: 12px;">{{ getuser.fullname }}</h5>
                                             <h6 class="fw-light text-white mt-2" style="font-size: 12px;">{{ getuser.email }}</h6>
+                                            <div v-if="get_unread.some(unread => unread.sender_id == getuser.id)">
+                                                <h6 class="fw-light text-info mt-2" style="font-size: 11px;">New message <span class="text-danger">*</span></h6>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="text-start">
@@ -54,7 +57,7 @@ import { Link as inertiaLink } from '@inertiajs/vue3'
 export default {
     name: 'cAdminChatbox',
     components: { AdminNavigationVue, inertiaLink },
-    props: {getcAdmin_images:Object, get_usersinfo:Array},
+    props: {getcAdmin_images:Object, get_usersinfo:Array, get_unread:Array},
 }
 </script>
 

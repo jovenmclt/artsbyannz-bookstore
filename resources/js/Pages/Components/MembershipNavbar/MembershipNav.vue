@@ -52,9 +52,9 @@
             <inertiaLink href="/loginmember" class="text-secondary" v-if="!userIds">
                 <span class="text-white"><i class="bi bi-person-circle fs-3 me-3 font-hover"></i></span>
             </inertiaLink>
-            <a href="#" class="text-secondary d-md-inline d-none">
+            <inertiaLink href="/cart" class="text-secondary d-md-inline d-none">
                 <span class="text-white "><i class="bi bi-cart2 fs-3 font-hover"><sup class="fs-6">{{ userCarts.length }}</sup></i></span>
-            </a>
+            </inertiaLink>
         </div>
         <div class="collapse navbar-collapse justify-content-center align-items-center " id="mainNav">
             <ul class="navbar-nav text-start pe-xl-5">
@@ -132,9 +132,9 @@
             <inertiaLink href="/loginmember" class="text-secondary" v-if="!userIds">
                 <span class="text-white"><i class="bi bi-person-circle fs-3 me-3 font-hover"></i></span>
             </inertiaLink>
-            <a href="#" class="text-secondary d-xl-inline d-none">
+            <inertiaLink href="/cart" class="text-secondary d-xl-inline d-none">
                 <span class="text-white "><i class="bi bi-cart2 fs-3 font-hover"><sup class="fs-6">{{ userCarts.length }}</sup></i></span>
-            </a>
+            </inertiaLink>
         </div>
     </nav>
     <nav class="col-xl-3 col-md-4 min-vh-100 py-5 px-3 position-fixed start-0 z-2 d-none d-lg-block">

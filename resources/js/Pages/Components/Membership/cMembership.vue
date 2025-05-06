@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <Navbar :userCarts="userCarts"/>
             <main class="col-12 justify-content-center align-items-center">
-                <section id="sec1" v-if="!showjoin">
+                <section id="sec1" v-if="!showjoin" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-center px-2">
                             <p class="fw-light text-white">Support me and my art journey and get exclusive content and
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec2" v-if="showjoin">
+                <section id="sec2" v-if="showjoin" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-center">
                             <h2 class="fw-light text-white">CREATE ACCOUNT</h2>
@@ -156,5 +156,15 @@ export default {
 section {
     font-family: "Poppins", serif;
     padding: calc(60px + 1rem) 0;
+}
+
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
 }
 </style>

@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <mainNav :userCarts="userCarts" />
             <main class="col-12 justify-content-center align-items-center" style="margin-top: 100px;">
-                <section id="sec1" v-if="!showToggle">
+                <section id="sec1" v-if="!showToggle" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-center">
                             <h2 class="fw-semibold text-white">LOGIN</h2>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec2" v-if="showToggle">
+                <section id="sec2" v-if="showToggle" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-center">
                             <h2 class="fw-semibold text-white">FORGOT PASSWORD</h2>
@@ -120,4 +120,13 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
+}
 </style>

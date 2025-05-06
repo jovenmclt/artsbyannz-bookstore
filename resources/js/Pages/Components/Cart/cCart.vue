@@ -3,7 +3,7 @@
         <div class="row justify-content-center px-md-5 px-2">
             <Navbar :userCarts="userCarts"/>
             <main class="col-12 justify-content-center align-items-center">
-                <section id="sec1" v-if="userCarts.length > 0">
+                <section id="sec1" v-if="userCarts.length > 0" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-start">
                             <h5 class="fw-light text-white">{{ userCarts.length }} item in your cart for ${{ rsubtotal }}</h5>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec2" v-else>
+                <section id="sec2" v-else class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="text-center mt-5">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec3">
+                <section id="sec3" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-md-start text-center px-md-5">
                             <h1 class="fw-light text-white">YOU MAY ALSO LIKE</h1>
@@ -188,5 +188,15 @@ table th{
 table td {
     white-space: nowrap;
     padding: 10px 20px;
+}
+
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
 }
 </style>

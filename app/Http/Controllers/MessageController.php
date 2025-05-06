@@ -46,10 +46,16 @@ class MessageController extends Controller
 
         $get_membermessage =[];
         $get_memberId = $userId->id;
-        
+
         $get_conversationId =  conversation_table::select('id')->where('member_id', $get_memberId)->first();
         if($get_conversationId){
             $get_membermessage= message_table::where('conversation_id',$get_conversationId->id)->orderBy('created_at', 'asc')->get();
+        }
+
+        if($userId){
+            message_table::where('sender_id', $get_memberId)->update([
+                'is_read' => false
+            ]);
         }
 
         return Inertia::render('Index/AdminMessage', [

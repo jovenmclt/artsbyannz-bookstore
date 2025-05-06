@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <Navbar :userCarts="userCarts" />
             <main class="col-12 justify-content-center align-items-center">
-                <section id="sec1">
+                <section id="sec1" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="col-xl-5 col-md-6">
                             <div class="text-center">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec2">
+                <section id="sec2" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-md-start text-center px-md-5">
                             <h1 class="fw-light text-white">YOU MAY ALSO LIKE</h1>
@@ -122,5 +122,15 @@ section {
 img:hover{
     opacity: 50%;
     transition: 0.5s;
+}
+
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
 }
 </style>

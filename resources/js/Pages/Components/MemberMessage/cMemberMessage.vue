@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <Navbar :userIds="userIds" :userInfos="userInfos" :userCarts="userCarts" />
             <main class="col-xl-10 col-lg-8 col-md-12 ms-auto justify-content-center px-3 mt-5">
-                <section id="section1">
+                <section id="section1" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="col-xl-9 col-md-10">
                             <div class="d-flex flex-column justify-content-between py-4 px-3 border border-secondary rounded w-auto" style="height: 500px; max-height: 100%;">
@@ -79,5 +79,15 @@ section {
     font-family: "Poppins", serif;
     padding-top: calc(60px + 1rem);
     overflow-wrap: break-word;
+}
+
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
 }
 </style>

@@ -3,7 +3,7 @@
         <div class="row justify-content-center px-2">
             <membershipNav :userIds="userIds" :userInfos="userInfos" :userCarts="userCarts"/>
             <main class="col-xl-10 col-lg-8 ms-auto justify-content-center mt-3">
-                <section id="sectionPosts">
+                <section id="sectionPosts" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="col-xl-9 col-md-10 py-5 px-xl-4 bg-transparent border border-secondary mt-xl-5 mt-3 ms-xl-3 rounded-4" v-for="(post, index) in premadePosts" :key="index">
                             <div class="row px-xl-5 px-3 bg-transparent">
@@ -281,6 +281,16 @@ export default {
 section{
     font-family: "Poppins", serif;
     padding-top: calc(60px + 1rem);
+}
+
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
 }
 </style>
 

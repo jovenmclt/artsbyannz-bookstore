@@ -2,7 +2,7 @@
     <div class="container-xxl">
         <div class="row px-xl-4 px-2">
             <main class="col-xl-8 col-md-7 justify-content-center align-items-center me-auto">
-                <section id="sec1">
+                <section id="sec1" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="col-md-12 justify-content-center">
                             <div class="text-center mt-4">
@@ -183,5 +183,15 @@ section {
         right: 0;
         top: 30px;
     }
+}
+
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
 }
 </style>

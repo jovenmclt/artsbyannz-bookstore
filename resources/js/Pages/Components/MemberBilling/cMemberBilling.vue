@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <MembershipNavVue :userIds="userIds" :userInfos="userInfos" :userCarts="userCarts" />
             <main class="col-xl-9 col-lg-8 col-md-12 ms-auto justify-content-center px-3 mt-5">
-                <section id="sec1">
+                <section id="sec1" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="col-md-10">
                             <div class="text-start">
@@ -82,4 +82,14 @@ td {
   background-color: transparent !important;
 }
 
+
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
+}
 </style>

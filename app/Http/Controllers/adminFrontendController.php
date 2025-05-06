@@ -51,13 +51,16 @@ class adminFrontendController extends Controller
 
     public function chatbox(){
         $getAdmin_images = User::select('file_logo', 'file_profile', 'username', 'email')->where('is_admin', '1')->first();
-
         $get_usersinfo = User::where('is_admin', null)->get();
-
-       // dd($get_readmessage);
+        $get_unread = message_table::select('sender_id')
+                    ->where('is_read', true)
+                    ->distinct()
+                    ->get();
+        //dd($get_unread);
         return Inertia::render('Index/AdminChatbox', [
             "getAdminImage" => $getAdmin_images,
             "get_usersinfo" => $get_usersinfo,
+            "get_unread" => $get_unread
         ]);
     }
 

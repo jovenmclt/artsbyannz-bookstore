@@ -2,8 +2,15 @@
     <div class="container-xxl">
         <div class="row justify-content-center">
             <Navigation :userCarts="userCarts"/>
-            <main class="col-12 justify-content-center align-items-center">
-                <section id="sec1">
+            <main class="col-12 justify-content-center align-items-center ">
+                <section id="section1" class="px-0 ">
+                    <div class="row justify-content-center px-0">
+                        <div class="text-center px-0">
+                            <img src="./assets/dust-jackets.jpg" class="px-0 w-100" height="650" alt="">
+                        </div>
+                    </div>
+                </section>
+                <section id="sec1" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-center">
                             <h1 class="fw-light text-white">PREMADE BOOK COVERS</h1>
@@ -43,7 +50,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec2">
+                <section id="sec2" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="d-lg-flex justify-content-between px-lg-5">
                             <div class="text-center">
@@ -71,7 +78,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec2">
+                <section id="sec2" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="d-lg-flex justify-content-between px-lg-5">
                             <div class="text-center">
@@ -100,7 +107,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec3">
+                <section id="sec3" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-center">
                             <h2 class="fw-light text-white">Join on A Magical Art Journey</h2>
@@ -118,7 +125,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec4">
+                <section id="sec4" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="d-lg-flex justify-content-between px-lg-5">
                             <div class="text-center">
@@ -148,7 +155,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec5">
+                <section id="sec5" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-center">
                             <h1 class="fw-light text-white">BECOME A MEMBER</h1>
@@ -180,7 +187,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec6">
+                <section id="sec6" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="d-lg-flex justify-content-between px-lg-5">
                             <div class="text-center">
@@ -210,7 +217,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec7">
+                <section id="sec7" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="d-lg-flex justify-content-between px-lg-5">
                             <div class="text-center">
@@ -239,7 +246,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec8">
+                <section id="sec8" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="col-md-5">
                             <div class="text-md-start text-center mt-lg-5">
@@ -273,7 +280,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec9">
+                <section id="sec9" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="col-md-6">
                             <div class="text-center">
@@ -297,7 +304,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="sec10">
+                <section id="sec10" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="d-lg-flex justify-content-between px-lg-5">
                             <div class="text-center">
@@ -404,4 +411,13 @@ img:hover {
     transition: 0.5s;
 }
 
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
+}
 </style>

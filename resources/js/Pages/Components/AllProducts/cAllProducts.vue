@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <Navigation :userCarts="userCarts"/>
             <main class="col-12 justify-content-center align-items-center">
-                <section id="sec1">
+                <section id="sec1" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-center">
                             <h1 class="fw-light text-white">ALL PRODUCTS</h1>
@@ -48,5 +48,15 @@ section {
 img:hover{
     opacity: 50%;
     transition: 0.5s;
+}
+
+.fade-in-div{
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0%   {opacity: 0%;}
+
+  100% {opacity: 100%;}
 }
 </style>
