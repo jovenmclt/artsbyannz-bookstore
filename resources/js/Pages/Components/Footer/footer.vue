@@ -7,33 +7,33 @@
     <nav class="col-auto navbar navbar-expand-md justify-content-center align-items-center ">
         <ul class="navbar-nav text-center">
             <li class="nav-item">
-                <inertiaLink href="#" class="nav-link text-white text-decoration-none mx-md-2">
+                <a href="https://www.artsbyannz.com/" class="nav-link text-white text-decoration-none mx-md-2">
                     <span class="fs-6 font-hover">Website</span>
-                </inertiaLink>
-            </li>
-            <li class="nav-item">
-                <a href="https://www.artsbyannz.com/" target="_blank"
-                    class="nav-link text-white  text-decoration-none mx-md-2">
-                    <span class="fs-6 font-hover">Tips & Donations</span>
                 </a>
             </li>
             <li class="nav-item">
-                <inertiaLink href="#" class="nav-link text-white  text-decoration-none mx-md-2">
-                    <span class="fs-6 font-hover">Contact</span>
+                <inertiaLink href="/donation" target="_blank"
+                    class="nav-link text-white  text-decoration-none mx-md-2">
+                    <span class="fs-6 font-hover">Tips & Donations</span>
                 </inertiaLink>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-white  text-decoration-none mx-md-2">
+                <a href="https://shop.artsbyannz.com/pages/contact" class="nav-link text-white  text-decoration-none mx-md-2">
+                    <span class="fs-6 font-hover">Contact</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://shop.artsbyannz.com/pages/terms-of-service" class="nav-link text-white  text-decoration-none mx-md-2">
                     <span class="fs-6 font-hover">Terms of Service</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-white  text-decoration-none mx-md-2">
+                <a href="https://shop.artsbyannz.com/pages/privacy-policy" class="nav-link text-white  text-decoration-none mx-md-2">
                     <span class="fs-6 font-hover">Privacy & Policy</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-white  text-decoration-none mx-md-2">
+                <a href="https://shop.artsbyannz.com/pages/returns-faq" class="nav-link text-white  text-decoration-none mx-md-2">
                     <span class="fs-6 font-hover">Return & FAQ</span>
                 </a>
             </li>
