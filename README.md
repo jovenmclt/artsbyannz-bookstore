@@ -1,2 +1,3 @@
 # artsbyannz-bookstore
-artsbyannz premade bookstore
+artsbyannz premade bookstore project
+
