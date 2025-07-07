@@ -65,6 +65,9 @@
                                             <input type="text"
                                                 class="form-control bg-secondary border-secondary shadow-none rounded-2 text-white"
                                                 v-model="discount_price" />
+                                            <div v-if="errors.Discount_Price" class="bg-transparent text-danger">
+                                                {{ errors.Discount_Price }}
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="d-md-flex gap-2 bg-transparent mt-xl-4 mt-3">

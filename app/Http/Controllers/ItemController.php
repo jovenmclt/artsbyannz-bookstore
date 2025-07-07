@@ -20,8 +20,8 @@ class ItemController extends Controller
         $validatedData = $request->validate([
             'File_Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'Title' => 'required|string|max:50',
-            'Original_Price' => 'required|string|max:50',
-            'Discount_Price' => 'nullable|string|max:50',
+            'Original_Price' => 'required|int',
+            'Discount_Price' => 'nullable|int',
             'Type' => 'required|string|max:50',
             'Item_Class' => 'nullable|string|max:50',
             'Description' => 'required|string|max:5000',

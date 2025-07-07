@@ -43,7 +43,7 @@ class AuthenticationController extends Controller
             'password'=>Hash::make($validated['Password'])
         ]);
 
-        return redirect()->route('homepage');
+        return redirect()->route('loginMember');
 
     }
 

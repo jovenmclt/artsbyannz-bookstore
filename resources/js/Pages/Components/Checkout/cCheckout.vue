@@ -210,9 +210,9 @@ export default {
     },
     mounted() {
         this.getSubtotal();
-        axios.get("https://restcountries.com/v3.1/all")
+        axios.get("https://countriesnow.space/api/v0.1/countries")
             .then(response => {
-                this.countries = response.data.map(c => c.name.common).sort();
+                this.countries = response.data.data.map(item => item.country).sort();
             })
             .catch(error => console.error("Error fetching countries:", error));
     }
