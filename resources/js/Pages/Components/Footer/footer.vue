@@ -41,7 +41,7 @@
     </nav>
     <div class="text-center ">
         <p class="fw-semibold text-secondary me-3" style="font-size: 13px;">© 2025 All rights reserved Ann Joven (artsbyannz)</p>
-        <p class="fw-bold text-secondary me-3" style="font-size: 13px;"> Developed By jovenmiclatt.</p>
+        <p class="fw-bold text-secondary me-3" style="font-size: 13px;"> Developed By jovenmclt.</p>
     </div>
 </template>
 

@@ -3,13 +3,6 @@
         <div class="row justify-content-center">
             <Navigation :userCarts="userCarts"/>
             <main class="col-12 justify-content-center align-items-center ">
-                <section id="section1" class="px-0 ">
-                    <div class="row justify-content-center px-0">
-                        <div class="text-center px-0">
-                            <img src="./assets/dust-jackets.jpg" class="px-0 w-100" height="650" alt="">
-                        </div>
-                    </div>
-                </section>
                 <section id="sec1" class="fade-in-div">
                     <div class="row justify-content-center">
                         <div class="text-center">

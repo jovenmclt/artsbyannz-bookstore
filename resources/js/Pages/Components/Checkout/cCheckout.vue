@@ -25,7 +25,7 @@
                                 <div class="input-group gap-2">
                                     <select v-model="selectedCountry" class="form-select shadow-none w-25">
                                         <option value="" disabled>Select a country</option>
-                                        <option class="text-white" v-for="country in countries" :key="country"
+                                        <option class="text-white" v-for="(country, index) in countries" :key="index"
                                             :value="country">
                                             {{ country }}
                                         </option>
@@ -210,11 +210,13 @@ export default {
     },
     mounted() {
         this.getSubtotal();
-        axios.get("https://countriesnow.space/api/v0.1/countries")
-            .then(response => {
-                this.countries = response.data.data.map(item => item.country).sort();
-            })
-            .catch(error => console.error("Error fetching countries:", error));
+        axios.get("https://api.first.org/data/v1/countries")
+        .then(response => {
+            this.countries = Object.values(response.data.data)
+            .map(item => item.country)
+            .sort();
+        })
+        .catch(error => console.error("Error fetching countries:", error));
     }
 }
 </script>
